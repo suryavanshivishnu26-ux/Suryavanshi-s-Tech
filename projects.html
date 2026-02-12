@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Suryavanshi's Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void-black: #0a0a0f;
+            --deep-violet: #6b2ff5;
+            --electric-violet: #a855f7;
+            --violet-glow: #c084fc;
+            --matrix-green: #00ff41;
+            --neon-green: #39ff14;
+            --silver: #e2e8f0;
+            --platinum: #f8fafc;
+            --violet-shadow: rgba(107, 47, 245, 0.3);
+            --green-shadow: rgba(0, 255, 65, 0.3);
+            --accent-gradient: linear-gradient(135deg, #6b2ff5 0%, #a855f7 100%);
+            --matrix-gradient: linear-gradient(135deg, #00ff41 0%, #39ff14 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--void-black);
+            color: var(--silver);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(107, 47, 245, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 65, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: backgroundPulse 10s ease-in-out infinite;
+        }
+
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(107, 47, 245, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(107, 47, 245, 0.2);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.8);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--silver);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--matrix-gradient);
+            box-shadow: 0 0 10px var(--matrix-green);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--matrix-green);
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--matrix-green);
+        }
+
+        nav a.active::before {
+            width: 100%;
+        }
+
+        .page-hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--platinum) 0%, var(--matrix-green) 50%, var(--deep-violet) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(107, 47, 245, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--matrix-gradient);
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover::after {
+            opacity: 0.3;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--matrix-green);
+            box-shadow: 0 20px 60px var(--violet-shadow), 0 0 40px var(--green-shadow);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--violet-glow);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--platinum);
+        }
+
+        .project-content p {
+            color: var(--silver);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--matrix-green);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Suryavanshi's Tech</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html" class="active">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>My Projects</h1>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+<div class="projects-grid">
+
+    <!-- NAINA V.AI -->
+    <a href="#" class="project-link">
+        <div class="project-card">
+            <div class="project-image">NAINA V.AI</div>
+            <div class="project-content">
+                <h3>NAINA V.AI - AI Vision Assistant</h3>
+                <p>
+                    An ESP32-CAM based AI image analysis system that captures images,
+                    sends them to a backend powered by LLaMA 4 Scout API,
+                    and displays intelligent responses on an OLED screen.
+                    Built with retry logic, Wi-Fi stability handling,
+                    and real-time serial monitoring.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">ESP32</span>
+                    <span class="tag">ESP32-CAM</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Groq API</span>
+                    <span class="tag">IoT</span>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <!-- CamDrive -->
+    <a href="#" class="project-link">
+        <div class="project-card">
+            <div class="project-image">CamDrive</div>
+            <div class="project-content">
+                <h3>CamDrive - 4WD Smart Robot</h3>
+                <p>
+                    A 4WD robot powered by dual 10,000mAh Li-Po cells,
+                    using ESP32 and L298N motor driver.
+                    Designed with separated motor and logic power domains,
+                    boost converters, noise suppression capacitors,
+                    and ultrasonic obstacle detection.
+                    Capable of carrying up to 3kg payload.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Robotics</span>
+                    <span class="tag">ESP32</span>
+                    <span class="tag">L298N</span>
+                    <span class="tag">Ultrasonic</span>
+                    <span class="tag">4WD</span>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <!-- Smart AR Glasses -->
+    <a href="#" class="project-link">
+        <div class="project-card">
+            <div class="project-image">Smart AR Glasses</div>
+            <div class="project-content">
+                <h3>ESP32 Smart AR Glasses (Prototype)</h3>
+                <p>
+                    A wearable AI prototype using ESP32-CAM,
+                    transparent OLED display (128x64),
+                    speech-to-text, text-to-speech,
+                    and real-time object analysis.
+                    Designed as a low-cost assistive AI interface.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">Wearable Tech</span>
+                    <span class="tag">ESP32</span>
+                    <span class="tag">OLED</span>
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">IoT</span>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <!-- Recycled PET 3D Printing -->
+    <a href="#" class="project-link">
+        <div class="project-card">
+            <div class="project-image">Recycled PET Printing</div>
+            <div class="project-content">
+                <h3>Recycled PET 3D Printing</h3>
+                <p>
+                    Experimental project focused on converting used PET bottles
+                    into custom 3D printer filament for sustainable manufacturing.
+                    Aiming to produce toys and household items
+                    using low-cost recycled materials.
+                </p>
+                <div class="project-tags">
+                    <span class="tag">3D Printing</span>
+                    <span class="tag">Recycling</span>
+                    <span class="tag">Sustainability</span>
+                    <span class="tag">DIY Engineering</span>
+                </div>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer style="margin-top: 6rem; padding: 3rem 0; border-top: 1px solid rgba(107, 47, 245, 0.2); text-align: center;">
+        <div class="container">
+            <p style="color: var(--silver); opacity: 0.7;">&copy; 2024 Suryavanshi's Tech. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
