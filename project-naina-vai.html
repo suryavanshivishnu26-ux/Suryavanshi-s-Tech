@@ -1,91 +1,155 @@
-<main>
-    <div class="container">
-        <a href="projects.html" class="back-link">← Back to Projects</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAINA V.AI - Suryavanshi's Tech</title>
 
-        <section class="project-hero">
-            <h1>NAINA V.AI</h1>
-            
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Embedded Systems Engineer</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Year</span>
-                    <span class="meta-value">2025</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Status</span>
-                    <span class="meta-value">Working Prototype</span>
-                </div>
-            </div>
-        </section>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        <div class="project-image-large">
-            ESP32-CAM + AI + OLED
-        </div>
+<style>
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    background: #0a0a0f;
+    color: #e2e8f0;
+}
 
-        <section class="project-content">
-            <h2>Overview</h2>
-            <p>
-                NAINA V.AI is a compact AI-powered vision assistant built using ESP32-CAM and ESP32 DevKit.
-                It captures real-world images, sends them to a backend server,
-                processes them using Groq’s LLaMA 4 Scout model,
-                and displays intelligent responses on an OLED display.
-            </p>
-            <p>
-                The system emphasizes reliability, network stability, and transparent debugging.
-                Every stage — image capture, upload, AI processing, and response return —
-                is logged step-by-step for complete system visibility.
-            </p>
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem;
+}
 
-            <h2>Technologies Used</h2>
-            <div class="tech-stack">
-                <span class="tech-tag">ESP32</span>
-                <span class="tech-tag">ESP32-CAM</span>
-                <span class="tech-tag">Groq API</span>
-                <span class="tech-tag">LLaMA 4 Scout</span>
-                <span class="tech-tag">Wi-Fi Communication</span>
-                <span class="tech-tag">OLED (I2C)</span>
-                <span class="tech-tag">IoT Backend</span>
-            </div>
+header {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(107,47,245,0.3);
+}
 
-            <h2>Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Image-Based AI Interaction</h3>
-                    <p>Captures images via ESP32-CAM and sends them for cloud AI analysis.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Reliable Wi-Fi Handling</h3>
-                    <p>Automatic reconnect logic with retry mechanisms for stable communication.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>OLED Output Display</h3>
-                    <p>Displays AI-generated results clearly on a compact I2C OLED module.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Transparent Debug Logging</h3>
-                    <p>Serial-style monitoring system to track every data transfer step.</p>
-                </div>
-            </div>
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg,#6b2ff5,#a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
 
-            <h2>Engineering Challenges</h2>
-            <p>
-                Handling HTTP timeouts during large image transfers was a major issue.
-                This was solved by optimizing JPEG quality, reducing frame size,
-                and implementing structured timeout handling with resend logic.
-            </p>
-            <p>
-                Power stability and backend response consistency were improved
-                through connection health checks and controlled communication cycles,
-                ensuring smooth real-time operation.
-            </p>
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-top: 2rem;
+    background: linear-gradient(135deg,#f8fafc,#00ff41,#6b2ff5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-            <div class="cta-buttons">
-                <a href="#" class="cta-btn">View Demo</a>
-                <a href="#" class="cta-btn secondary">View GitHub</a>
-            </div>
-        </section>
-    </div>
-</main>
+.meta {
+    margin: 1rem 0 2rem 0;
+    color: #00ff41;
+}
+
+.project-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(0,255,65,0.3);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: #00ff41;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.tech-tag {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    font-size: 0.9rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 12px 25px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    background: linear-gradient(135deg,#00ff41,#39ff14);
+    color: black;
+}
+
+.back {
+    color: #00ff41;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<a href="index.html" class="logo">Suryavanshi's Tech</a>
+</div>
+</header>
+
+<div class="container">
+
+<a href="projects.html" class="back">← Back to Projects</a>
+
+<h1>NAINA V.AI</h1>
+
+<div class="meta">
+Role: Embedded Systems Developer | Year: 2025 | Status: Functional Prototype
+</div>
+
+<div class="project-box">
+<h2>Overview</h2>
+<p>
+NAINA V.AI is an ESP32-CAM based AI vision assistant.
+It captures images, sends them to a backend server,
+analyzes them using Groq’s LLaMA 4 Scout model,
+and displays the AI response on an OLED display.
+</p>
+
+<p>
+The system focuses on reliability, Wi-Fi reconnect logic,
+timeout handling, and transparent serial-style debugging.
+It demonstrates real-world integration between edge hardware
+and large language models.
+</p>
+</div>
+
+<div class="project-box">
+<h2>Technologies Used</h2>
+
+<span class="tech-tag">ESP32</span>
+<span class="tech-tag">ESP32-CAM</span>
+<span class="tech-tag">Groq API</span>
+<span class="tech-tag">LLaMA 4 Scout</span>
+<span class="tech-tag">Wi-Fi Networking</span>
+<span class="tech-tag">OLED Display</span>
+
+</div>
+
+<div class="project-box">
+<h2>Key Features</h2>
+<p>• Real-time image capture and AI analysis</p>
+<p>• Automatic Wi-Fi reconnect & retry logic</p>
+<p>• OLED response display system</p>
+<p>• Step-by-step serial monitoring</p>
+</div>
+
+<a href="#" class="btn">View Demo</a>
+
+</div>
+
+</body>
+</html>
