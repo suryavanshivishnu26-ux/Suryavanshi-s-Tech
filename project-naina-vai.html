@@ -1,0 +1,92 @@
+<main>
+    <div class="container">
+        <a href="projects.html" class="back-link">← Back to Projects</a>
+
+        <section class="project-hero">
+            <h1>NAINA V.AI</h1>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Embedded Systems Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2025</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value">Prototype - Functional</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="project-image-large">
+            ESP32-CAM + OLED AI System
+        </div>
+
+        <section class="project-content">
+            <h2>Overview</h2>
+            <p>
+                NAINA V.AI is a low-cost embedded AI vision assistant built using ESP32-CAM 
+                and ESP32 DevKit. The system captures real-world images, sends them to a 
+                backend server, and analyzes them using the Groq LLaMA 4 Scout 17B model.
+                The AI-generated response is then displayed on an OLED screen.
+            </p>
+            <p>
+                The project focuses on reliability, real-time feedback, Wi-Fi reconnection logic, 
+                and transparent debugging using serial-monitor style logging. Designed as a 
+                compact AI interface, it demonstrates how edge hardware can interact with 
+                large-scale language models.
+            </p>
+
+            <h2>Technologies Used</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">ESP32-CAM</span>
+                <span class="tech-tag">Groq API</span>
+                <span class="tech-tag">LLaMA 4 Scout</span>
+                <span class="tech-tag">Wi-Fi Networking</span>
+                <span class="tech-tag">OLED Display</span>
+                <span class="tech-tag">IoT Backend</span>
+            </div>
+
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Image Capture & AI Analysis</h3>
+                    <p>Captures real-world images using ESP32-CAM and processes them via LLaMA-based AI model.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reliable Wi-Fi Handling</h3>
+                    <p>Automatic reconnect logic and backend health checks to prevent system crashes.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>OLED Display Output</h3>
+                    <p>Displays AI-generated responses directly on an I2C OLED module.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Serial Debug Monitor</h3>
+                    <p>Step-by-step logging for complete transparency of image transfer and AI processing.</p>
+                </div>
+            </div>
+
+            <h2>Engineering Challenges</h2>
+            <p>
+                One major challenge was HTTP timeouts during image transfer from ESP32-CAM.
+                This was solved by optimizing JPEG quality, reducing frame size, 
+                and implementing retry mechanisms with timeout handling.
+            </p>
+            <p>
+                Power stability and network reliability were also key considerations.
+                The system includes fail-safe reconnection logic and backend validation 
+                to ensure consistent AI responses.
+            </p>
+
+            <div class="cta-buttons">
+                <a href="#" class="cta-btn">View Demo Video</a>
+                <a href="#" class="cta-btn secondary">View GitHub Repository</a>
+            </div>
+        </section>
+    </div>
+</main>
