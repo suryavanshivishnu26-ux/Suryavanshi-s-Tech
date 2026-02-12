@@ -8,7 +8,7 @@
             <div class="project-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Embedded Systems Developer</span>
+                    <span class="meta-value">Embedded Systems Engineer</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Year</span>
@@ -16,28 +16,27 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Status</span>
-                    <span class="meta-value">Prototype - Functional</span>
+                    <span class="meta-value">Working Prototype</span>
                 </div>
             </div>
         </section>
 
         <div class="project-image-large">
-            ESP32-CAM + OLED AI System
+            ESP32-CAM + AI + OLED
         </div>
 
         <section class="project-content">
             <h2>Overview</h2>
             <p>
-                NAINA V.AI is a low-cost embedded AI vision assistant built using ESP32-CAM 
-                and ESP32 DevKit. The system captures real-world images, sends them to a 
-                backend server, and analyzes them using the Groq LLaMA 4 Scout 17B model.
-                The AI-generated response is then displayed on an OLED screen.
+                NAINA V.AI is a compact AI-powered vision assistant built using ESP32-CAM and ESP32 DevKit.
+                It captures real-world images, sends them to a backend server,
+                processes them using Groq’s LLaMA 4 Scout model,
+                and displays intelligent responses on an OLED display.
             </p>
             <p>
-                The project focuses on reliability, real-time feedback, Wi-Fi reconnection logic, 
-                and transparent debugging using serial-monitor style logging. Designed as a 
-                compact AI interface, it demonstrates how edge hardware can interact with 
-                large-scale language models.
+                The system emphasizes reliability, network stability, and transparent debugging.
+                Every stage — image capture, upload, AI processing, and response return —
+                is logged step-by-step for complete system visibility.
             </p>
 
             <h2>Technologies Used</h2>
@@ -46,46 +45,46 @@
                 <span class="tech-tag">ESP32-CAM</span>
                 <span class="tech-tag">Groq API</span>
                 <span class="tech-tag">LLaMA 4 Scout</span>
-                <span class="tech-tag">Wi-Fi Networking</span>
-                <span class="tech-tag">OLED Display</span>
+                <span class="tech-tag">Wi-Fi Communication</span>
+                <span class="tech-tag">OLED (I2C)</span>
                 <span class="tech-tag">IoT Backend</span>
             </div>
 
             <h2>Key Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>Image Capture & AI Analysis</h3>
-                    <p>Captures real-world images using ESP32-CAM and processes them via LLaMA-based AI model.</p>
+                    <h3>Image-Based AI Interaction</h3>
+                    <p>Captures images via ESP32-CAM and sends them for cloud AI analysis.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Reliable Wi-Fi Handling</h3>
-                    <p>Automatic reconnect logic and backend health checks to prevent system crashes.</p>
+                    <p>Automatic reconnect logic with retry mechanisms for stable communication.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>OLED Display Output</h3>
-                    <p>Displays AI-generated responses directly on an I2C OLED module.</p>
+                    <h3>OLED Output Display</h3>
+                    <p>Displays AI-generated results clearly on a compact I2C OLED module.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>Serial Debug Monitor</h3>
-                    <p>Step-by-step logging for complete transparency of image transfer and AI processing.</p>
+                    <h3>Transparent Debug Logging</h3>
+                    <p>Serial-style monitoring system to track every data transfer step.</p>
                 </div>
             </div>
 
             <h2>Engineering Challenges</h2>
             <p>
-                One major challenge was HTTP timeouts during image transfer from ESP32-CAM.
-                This was solved by optimizing JPEG quality, reducing frame size, 
-                and implementing retry mechanisms with timeout handling.
+                Handling HTTP timeouts during large image transfers was a major issue.
+                This was solved by optimizing JPEG quality, reducing frame size,
+                and implementing structured timeout handling with resend logic.
             </p>
             <p>
-                Power stability and network reliability were also key considerations.
-                The system includes fail-safe reconnection logic and backend validation 
-                to ensure consistent AI responses.
+                Power stability and backend response consistency were improved
+                through connection health checks and controlled communication cycles,
+                ensuring smooth real-time operation.
             </p>
 
             <div class="cta-buttons">
-                <a href="#" class="cta-btn">View Demo Video</a>
-                <a href="#" class="cta-btn secondary">View GitHub Repository</a>
+                <a href="#" class="cta-btn">View Demo</a>
+                <a href="#" class="cta-btn secondary">View GitHub</a>
             </div>
         </section>
     </div>
